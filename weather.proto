@@ -1,0 +1,18 @@
+// protoc --go_out=weather --go-grpc_out=. weather.proto
+syntax = "proto3";
+
+package openweathermap;
+
+option go_package = ".";
+   service OpenWeatherMap {
+       rpc GetWeather(GetWeatherRequest) returns (GetWeatherResponse) {}
+   }
+
+   message GetWeatherRequest {
+       string city = 1;
+   }
+
+   message GetWeatherResponse {
+    string city = 1;
+    int32 temperature_celsius = 2;
+    string weather = 3;   } 
